@@ -1,7 +1,6 @@
 package com.aircompanies.dto.aircompany;
 
 import com.aircompanies.dto.companytype.CompanyTypeDto;
-import com.aircompanies.entity.CompanyType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
