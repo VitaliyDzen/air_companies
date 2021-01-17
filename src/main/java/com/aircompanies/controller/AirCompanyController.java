@@ -1,0 +1,60 @@
+package com.aircompanies.controller;
+
+import com.aircompanies.dto.aircompany.AirCompanyDto;
+import com.aircompanies.dto.aircompany.AirCompanyPostDto;
+import com.aircompanies.entity.AirCompany;
+import com.aircompanies.service.AirCompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+
+import static com.aircompanies.constants.ResourceMapping.*;
+
+@RestController
+@RequestMapping(AIR_COMPANY)
+public class AirCompanyController {
+
+    private final AirCompanyService airCompanyService;
+
+    @Autowired
+    public AirCompanyController(AirCompanyService airCompanyService) {
+        this.airCompanyService = airCompanyService;
+    }
+
+    @GetMapping
+    public List<AirCompanyDto> findAllAirCompanies() {
+        return airCompanyService.findAllAirCompanies();
+    }
+
+    @GetMapping(ID)
+    public AirCompanyDto findAirCompanyById(@RequestParam Long id) {
+        return airCompanyService.findAirCompanyById(id);
+    }
+
+    @GetMapping(NAME)
+    public AirCompanyDto findAirCompanyByName(@RequestParam String name) {
+        return airCompanyService.findAirCompanyByName(name);
+    }
+
+    @PostMapping
+    public ResponseEntity<AirCompany> save(@Valid @RequestBody AirCompanyPostDto airCompanyPostDto) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(airCompanyService.save(airCompanyPostDto));
+    }
+
+    @PutMapping(ID_PATH_VARIABLE)
+    public ResponseEntity<AirCompany> update(@Valid @RequestBody AirCompanyDto airCompanyDto, @PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(airCompanyService.update(airCompanyDto, id));
+    }
+
+    @DeleteMapping(ID_PATH_VARIABLE)
+    public void delete(@PathVariable Long id) {
+        airCompanyService.delete(id);
+    }
+
+}
