@@ -1,0 +1,16 @@
+package com.aircompanies.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotDeletedException extends RuntimeException {
+
+    public NotDeletedException() {
+        super();
+    }
+
+    public NotDeletedException(String message) {
+        super(message);
+    }
+}
