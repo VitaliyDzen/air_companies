@@ -1,8 +1,8 @@
 package com.aircompanies.dto.flight;
 
-import com.aircompanies.dto.aircompany.AirCompanyDto;
-import com.aircompanies.dto.airplane.AirplaneDto;
-import com.aircompanies.dto.country.CountryDto;
+import com.aircompanies.dto.aircompany.AirCompanyNameDto;
+import com.aircompanies.dto.airplane.AirplaneNameDto;
+import com.aircompanies.dto.country.CountryNameDto;
 import com.aircompanies.entity.enums.FlightStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +17,10 @@ import java.util.Date;
 public class FlightDto {
     private Long id;
     private FlightStatus flightStatus;
-    private AirCompanyDto airCompany;
-    private AirplaneDto airplane;
-    private CountryDto departureCountry;
-    private CountryDto destinationCountry;
+    private AirCompanyNameDto airCompany;
+    private AirplaneNameDto airplane;
+    private CountryNameDto departureCountry;
+    private CountryNameDto destinationCountry;
     private Float distance;
     private Time estimatedFlightTime;
     private Date endedAt;
