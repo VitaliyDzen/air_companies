@@ -2,8 +2,11 @@ package com.aircompanies.controller;
 
 import com.aircompanies.dto.aircompany.AirCompanyDto;
 import com.aircompanies.dto.aircompany.AirCompanyPostDto;
+import com.aircompanies.dto.flight.FlightDto;
 import com.aircompanies.entity.AirCompany;
+import com.aircompanies.entity.enums.FlightStatus;
 import com.aircompanies.service.AirCompanyService;
+import com.aircompanies.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,15 +22,22 @@ import static com.aircompanies.constants.ResourceMapping.*;
 public class AirCompanyController {
 
     private final AirCompanyService airCompanyService;
+    private final FlightService flightService;
 
     @Autowired
-    public AirCompanyController(AirCompanyService airCompanyService) {
+    public AirCompanyController(AirCompanyService airCompanyService, FlightService flightService) {
         this.airCompanyService = airCompanyService;
+        this.flightService = flightService;
     }
 
     @GetMapping
     public List<AirCompanyDto> findAllAirCompanies() {
         return airCompanyService.findAllAirCompanies();
+    }
+
+    @GetMapping("/name/{companyName}/flights/status")
+    public List<FlightDto> findAllFlightsByFlightStatusAndAirCompany_Name(@RequestParam FlightStatus status, @PathVariable String companyName) {
+        return flightService.findAllByFlightStatusAndAirCompany_Name(status, companyName);
     }
 
     @GetMapping(ID)
