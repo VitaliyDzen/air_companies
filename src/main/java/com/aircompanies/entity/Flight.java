@@ -1,6 +1,7 @@
 package com.aircompanies.entity;
 
 import com.aircompanies.entity.enums.FlightStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,9 +29,11 @@ public class Flight {
     @Enumerated(value = EnumType.STRING)
     private FlightStatus flightStatus;
 
+    @JsonIgnore
     @ManyToOne
     private AirCompany airCompany;
 
+    @JsonIgnore
     @ManyToOne
     private Airplane airplane;
 
