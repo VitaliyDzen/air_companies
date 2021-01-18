@@ -21,7 +21,3 @@ services:
     restart: always
     depends_on:
       - docker-mysql
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3307/air_companies?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-      SPRING_DATASOURCE_USERNAME: aircompanies
-      SPRING_DATASOURCE_PASSWORD: aircompanies
