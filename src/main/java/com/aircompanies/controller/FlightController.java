@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static com.aircompanies.constants.ResourceMapping.FLIGHT;
-import static com.aircompanies.constants.ResourceMapping.ID;
+import static com.aircompanies.constants.ResourceMapping.*;
 
 @RestController
 @RequestMapping(FLIGHT)
@@ -26,7 +25,7 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @GetMapping("/status/active/date/yesterday")
+    @GetMapping(STATUS + ACTIVE_DATE_YESTERDAY)
     public List<FlightDto> findAllByFlightByActiveStatusAndLessThanYesterday() {
         return flightService.findAllByFlightByActiveStatusAndLessThanYesterday();
     }
@@ -37,7 +36,7 @@ public class FlightController {
                 .body(flightService.save(flightPostDto));
     }
 
-    @PutMapping("/{id}/status")
+    @PutMapping(ID_PATH_VARIABLE + STATUS)
     public ResponseEntity<Flight> updateStatus(@RequestParam FlightStatus flightStatus, @PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(flightService.updateStatus(flightStatus, id));
@@ -48,7 +47,7 @@ public class FlightController {
         return flightService.findFlightById(id);
     }
 
-    @GetMapping("/status/completed/delayed")
+    @GetMapping(STATUS + COMPLETED_DELAYED)
     public List<FlightDto> findAllByFlightStatusCOMPLETEDAndDelayed() {
         return flightService.findAllByFlightStatusCOMPLETEDAndDelayed();
     }

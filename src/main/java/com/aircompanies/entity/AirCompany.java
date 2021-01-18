@@ -37,6 +37,7 @@ public class AirCompany {
     @OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
     private List<Flight> flights;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "airCompany", fetch = FetchType.LAZY)
     private List<Airplane> airplanes;
 

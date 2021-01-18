@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static com.aircompanies.constants.ResourceMapping.AIRPLANE;
-import static com.aircompanies.constants.ResourceMapping.ID;
+import static com.aircompanies.constants.ResourceMapping.*;
 
 @RestController
 @RequestMapping(AIRPLANE)
@@ -25,7 +24,7 @@ public class AirplaneController {
         this.airplaneService = airplaneService;
     }
 
-    @PutMapping("/{id}/change-company")
+    @PutMapping(ID_PATH_VARIABLE + CHANGE_COMPANY)
     public ResponseEntity<Airplane> updateCompany(@PathVariable Long id, @RequestParam Long companyId) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(airplaneService.updateCompany(id, companyId));

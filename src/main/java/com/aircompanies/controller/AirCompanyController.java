@@ -35,7 +35,7 @@ public class AirCompanyController {
         return airCompanyService.findAllAirCompanies();
     }
 
-    @GetMapping("/name/{companyName}/flights/status")
+    @GetMapping(NAME_COMPANY_NAME_FLIGHTS_STATUS)
     public List<FlightDto> findAllFlightsByFlightStatusAndAirCompany_Name(@RequestParam FlightStatus status, @PathVariable String companyName) {
         return flightService.findAllByFlightStatusAndAirCompany_Name(status, companyName);
     }
