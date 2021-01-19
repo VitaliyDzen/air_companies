@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "76b03eb1-dc31-4e0a-bb7d-c2096072a4b7",
+		"name": "air-company",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "air-company",
+			"item": [
+				{
+					"name": "Get air company by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/air-company/id/?id=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company",
+								"id",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to find all Air Company Flights by status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/air-company/name/LATAM/flights/status?status=ACTIVE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company",
+								"name",
+								"LATAM",
+								"flights",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ACTIVE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get air company by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/air-company/name/?name=EVA Air",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company",
+								"name",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "EVA Air"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all air companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/air-company/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save air company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"My own Air Company\",\n\"companyType\": {\n\"id\": 4\n},\n\"createdAt\": \"2011-06-20T22:02:11.000+00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/air-company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update air company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"New Lufthansa Comp\",\n\"companyType\": {\n\"id\": 4\n},\n\"createdAt\": \"2011-06-20T22:02:11.000+00:00\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/air-company/4/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company",
+								"4",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete air company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/air-company/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"air-company",
+								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "airplane",
+			"item": [
+				{
+					"name": "Endpoint to add new Airplane",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n            \"name\": \"New airplane\",\n            \"factorySerialNumber\": \"n23232\",\n            \"airCompany\":{\n                \"id\":2\n            },\n            \n            \"flightDistance\": 1000,\n            \"fuelCapacity\": 1000,\n            \"airplaneType\":{\n                \"id\":1\n            },\n            \"createdAt\":\"2005-05-20T21:00\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/airplane",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"airplane"
+							]
+						},
+						"description": "Endpoint to add new Airplane (Could be assign to a company immediately or moved\nlater)."
+					},
+					"response": []
+				},
+				{
+					"name": "Get airplane by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/airplane/id/?id=20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"airplane",
+								"id",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to move airplanes between companies",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/airplane/20/change-company?companyId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"airplane",
+								"20",
+								"change-company"
+							],
+							"query": [
+								{
+									"key": "companyId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Endpoint to move airplanes between companies (simple endpoint to reassign airplane to\nanother company)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flight",
+			"item": [
+				{
+					"name": "Endpoint to find all Flights in ACTIVE status and started more than 24 hours ago",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/flight/status/active/date/yesterday",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"flight",
+								"status",
+								"active",
+								"date",
+								"yesterday"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to add new Flight",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"airCompany\": {\n            \"id\": 4\n        },\n        \"airplane\": {\n            \"id\": 12\n        },\n        \"departureCountry\": {\n            \"id\": 1\n        },\n        \"destinationCountry\": {\n            \"id\": 3\n        },\n        \"distance\": 672.0,\n        \"estimatedFlightTime\": \"02:02:23\",\n        \"endedAt\": null,\n        \"delayStartedAt\": null,\n        \"createdAt\": \"2021-02-28T22:00:00.000+00:00\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/flight",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"flight"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Endpoint to change Flight status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/flight/2/status?flightStatus=DELAYED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"flight",
+								"2",
+								"status"
+							],
+							"query": [
+								{
+									"key": "flightStatus",
+									"value": "DELAYED"
+								}
+							]
+						},
+						"description": "Endpoint to change Flight status:\nif status to change is DELAYED – set delay started at\nif status to change is ACTIVE – set started at\nif status to change is COMPLETED set ended at"
+					},
+					"response": []
+				},
+				{
+					"name": "Get flight by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/flight/id/?id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"flight",
+								"id",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Optional) Endpoint to find all Flights in COMPLETED status and difference between started and ended time is bigger than estimated flight time.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/flight/status/completed/delayed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"flight",
+								"status",
+								"completed",
+								"delayed"
+							]
+						},
+						"description": "(Optional) Endpoint to find all Flights in COMPLETED status and difference between\nstarted and ended time is bigger than estimated flight time."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
