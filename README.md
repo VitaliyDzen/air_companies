@@ -13,7 +13,7 @@
 
 
 2. #### How to run
-   ######(You can use Docker or run application on your PC)
+   #####_(You can use Docker or run the application on your PC)_
 
     1. ##### Use Docker:
 
