@@ -13,29 +13,28 @@
 
 
 2. #### How to run
+   ######(You can use Docker or run application on your PC)
 
     1. ##### Use Docker:
 
         - build the Docker Compose
         - run the Docker Compose
+   
+   2. ##### Run on your PC
 
+      - Open application-properties file and change
 
-
-2. ##### Run on your PC
-
-    - Open application-properties file and change
-
-      ```properties
-      #from
-      spring.profiles.active=prod
+       ```properties
+       #from
+       spring.profiles.active=prod
       
-      #to
-      spring.profiles.active=test
-      ```
+       #to
+       spring.profiles.active=test
+       ```
 
-    - Then you should create environmental variables that are defined in the `application-test.properties`
+       - Then you should create environmental variables that are defined in the `application-test.properties`
 
-      All these variables you can set in Intellij Idea. For instance:
+         All these variables you can set in Intellij Idea. For instance:
 
       ```properties
       spring.datasource.url=${DATABASE_TEST_URL}
@@ -43,7 +42,7 @@
       spring.datasource.password=${DATABASE_TEST_PASSWORD}
       ```
 
-    - And just run the application
+       - And just run the application
 
 3. #### How to test
 
