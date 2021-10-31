@@ -31,12 +31,12 @@ public class AirCompanyController {
     }
 
     @GetMapping
-    public List<AirCompanyDto> findAllAirCompanies() {
+    public List < AirCompanyDto > findAllAirCompanies() {
         return airCompanyService.findAllAirCompanies();
     }
 
     @GetMapping(NAME_COMPANY_NAME_FLIGHTS_STATUS)
-    public List<FlightDto> findAllFlightsByFlightStatusAndAirCompany_Name(@RequestParam FlightStatus status, @PathVariable String companyName) {
+    public List < FlightDto > findAllFlightsByFlightStatusAndAirCompany_Name(@RequestParam FlightStatus status, @PathVariable String companyName) {
         return flightService.findAllByFlightStatusAndAirCompany_Name(status, companyName);
     }
 
@@ -51,15 +51,15 @@ public class AirCompanyController {
     }
 
     @PostMapping
-    public ResponseEntity<AirCompany> save(@Valid @RequestBody AirCompanyPostDto airCompanyPostDto) {
+    public ResponseEntity < AirCompany > save(@Valid @RequestBody AirCompanyPostDto airCompanyPostDto) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(airCompanyService.save(airCompanyPostDto));
+            .body(airCompanyService.save(airCompanyPostDto));
     }
 
     @PutMapping(ID_PATH_VARIABLE)
-    public ResponseEntity<AirCompany> update(@Valid @RequestBody AirCompanyDto airCompanyDto, @PathVariable Long id) {
+    public ResponseEntity < AirCompany > update(@Valid @RequestBody AirCompanyDto airCompanyDto, @PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(airCompanyService.update(airCompanyDto, id));
+            .body(airCompanyService.update(airCompanyDto, id));
     }
 
     @DeleteMapping(ID_PATH_VARIABLE)
